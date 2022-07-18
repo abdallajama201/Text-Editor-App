@@ -30,7 +30,6 @@ export const getDb = async () => {
   const store = tx.objectStore('jate');
   const request = store.getAll();
   const result = await request;
-  console.log('result.value', result);
   let text = "";
   for (let i = 0; i < result.length; i++) {
     text.concat(result[i].data)
