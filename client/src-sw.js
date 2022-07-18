@@ -26,6 +26,7 @@ warmStrategyCache({
 
 registerRoute(({ request }) => request.mode === 'navigate', pageCache);
 
+// TODO: Implement asset caching
 const assetCache = new CacheFirst({
   cacheName: 'asset-cache',
   plugins: [
@@ -38,13 +39,12 @@ const assetCache = new CacheFirst({
   ],
 });
 
-// TODO: Implement asset caching
 const matchCallback = ({ request }) => {
   return (
     request.destination === 'style' ||
     request.destination === 'script' ||
     request.destination === 'image'
-  );
-};
-
-registerRoute(matchCallback, assetCache);
+    );
+  };
+  
+  registerRoute(matchCallback, assetCache);
