@@ -4,7 +4,7 @@
     "dev": "webpack-dev-server",
     "build": "webpack --mode production",
     "start": "webpack --watch",
-    "postinstall": "webpack -p --config ./webpack.prod.config.js --progress"
+    "heroku-postbuild": "webpack -p --config ./webpack.prod.config.js --progress"
   },
   "author": "2U",
   "license": "UNLICENSED",
