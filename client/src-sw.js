@@ -26,7 +26,7 @@ warmStrategyCache({
 
 registerRoute(({ request }) => request.mode === 'navigate', pageCache);
 
-// TODO: Implement asset caching
+// Create new cache for precaching
 const assetCache = new CacheFirst({
   cacheName: 'asset-cache',
   plugins: [
@@ -39,6 +39,7 @@ const assetCache = new CacheFirst({
   ],
 });
 
+// Designate what to cache
 const matchCallback = ({ request }) => {
   return (
     request.destination === 'style' ||
